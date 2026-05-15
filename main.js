@@ -37,11 +37,17 @@ const getChefBirthday = async (id) => {
     if(recipes.message){
         throw new Error(recipes.message);
     }
-    return recipes
+    //ora devo estrarre la proprietà userID 
+    let user;
+    try{
+        user = await fetchJson(`https://dummyjson.com/users/${recipes.userId}`)
+    } catch(error){
+        throw new Error(`Non è possibile recuperare le informazioni sullo chef`);
 
+    }
+    return user; //ora ho tutte le informazioni dello chef. 
 }
    
    getChefBirthday(1)
-   .then(recipes => console.log("la ricetta:", recipes))
  .then(birthday => console.log("Data di nascita dello chef:", birthday))
  .catch(error => console.error("Errore:", error.message));
