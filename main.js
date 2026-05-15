@@ -20,6 +20,7 @@ Scrivi la funzione getChefBirthday(id), che deve:
     
 
 
+
 //faccio una chiamata fetch alla url che mi daranno, questo mi servirà nella funzione getChefBirthday
 async function fetchJson(url) {
     const response = await fetch(url);
@@ -47,7 +48,12 @@ const getChefBirthday = async (id) => {
     }
     return user.birthDate; //ho aggiunto birthId  -- dopo aver commitato, trovata proprietà birthDate, quindi aggiungo al mio return 
 }
-   
-   getChefBirthday(1)
- .then(birthday => console.log("Data di nascita dello chef:", birthday))
+   //eseguo la funzione
+   getChefBirthday(3)
+ .then(birthday =>{
+    const dataFormattata = dayjs(birthday).format("DD/MM/YYYY"); //creo una variabile che usi dayjs per stampare la data di nascita nell'ordine corretto
+     console.log("Data di nascita dello chef:", dataFormattata);
+ } )
+    
  .catch(error => console.error("Errore:", error.message));
+
