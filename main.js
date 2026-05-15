@@ -45,7 +45,7 @@ const getChefBirthday = async (id) => {
         throw new Error(`Non è possibile recuperare le informazioni sullo chef`);
 
     }
-    return user; //ora ho tutte le informazioni dello chef. 
+    return user.birthDate; //ho aggiunto birthId  -- dopo aver commitato, trovata proprietà birthDate, quindi aggiungo al mio return 
 }
    
    getChefBirthday(1)
